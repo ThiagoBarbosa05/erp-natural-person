@@ -1,4 +1,4 @@
-import { DynamoDBClient, GetItemCommand, GetItemCommandOutput, GetItemInput, GetItemOutput, PutItemCommand, PutItemInput } from "@aws-sdk/client-dynamodb"
+import { DynamoDBClient, GetItemCommand, GetItemInput, PutItemCommand, PutItemInput } from "@aws-sdk/client-dynamodb"
 import { marshall } from "@aws-sdk/util-dynamodb"
 
 type SaleDB = {
