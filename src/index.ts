@@ -76,7 +76,13 @@ async function test() {
                 id: saleDetails.data.data.id,
                 date: saleDetails.data.data.data,
                 total: saleDetails.data.data.total,
-                items: saleDetails.data.data.itens
+                items: saleDetails.data.data.itens.map(item => ({
+                  id: item.id,
+                  name: item.descricao,
+                  quantity: item.quantidade,
+                  price: item.valor,
+                  totalPrice: item.valorTotal
+                }))
               }
               
             }),
