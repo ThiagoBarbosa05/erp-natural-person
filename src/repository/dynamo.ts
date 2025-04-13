@@ -33,7 +33,10 @@ export class DynamoRepository {
   async saveSale(sale: SaleDB) {
           const dbInput: PutItemInput = {
           TableName: "BlingSales",
-          Item: marshall(sale)
+          Item: marshall({
+            id: Number(sale.id),
+            name: sale.name
+          })
         } 
 
         const dbCommand = new PutItemCommand(dbInput)

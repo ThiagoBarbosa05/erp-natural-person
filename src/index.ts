@@ -18,6 +18,11 @@ async function test() {
   console.info("⏳ Buscando vendas no Bling")
   const sales = await bling.listSales()
   console.info("✅ Vendas encontradas: ", sales.map(sale => sale.id))
+
+  if (sales.length <= 0) {
+    console.info("❌ Nenhuma venda encontrada")
+    return
+  }
   
   for (const sale of sales) {
 
@@ -60,6 +65,12 @@ async function test() {
           total: saleDetails.total
           }
         }) 
+
+      console.info("⏳ Armazenando venda processada: ", sale.id)
+      await dynamo.saveSale({
+        id: sale.id.toString(),
+        name: sale.contato.nome
+      })
     }  
   }
 }
