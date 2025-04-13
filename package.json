@@ -17,8 +17,10 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.788.0",
     "@aws-sdk/client-sqs": "^3.787.0",
+    "@aws-sdk/util-dynamodb": "^3.788.0",
     "axios": "^1.8.4",
     "bottleneck": "^2.19.5",
-    "dayjs": "^1.11.13"
+    "dayjs": "^1.11.13",
+    "firebase-admin": "^13.2.0"
   }
 }

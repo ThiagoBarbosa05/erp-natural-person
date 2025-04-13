@@ -1,7 +1,7 @@
 import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
 
 export async function getTokenService() {
-    const db = await new DynamoDBClient({
+    const db =  new DynamoDBClient({
       region: "us-east-2"
     })
 
@@ -10,7 +10,12 @@ export async function getTokenService() {
       Key: {id: {S: 'Bling'}}
     })
 
-    const response = await db.send(getTokenCommand)
+    try {
+      const response = await db.send(getTokenCommand)
 
-    return response.Item?.tokens?.M?.access_token.S
+      return response.Item?.tokens?.M?.access_token.S
+    } catch (error) {
+      console.error('‼️ Erro ao buscar access token', error)
+    }
+    
 }
