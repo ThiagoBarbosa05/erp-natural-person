@@ -16,4 +16,7 @@ export interface SaleDetails {
       valor: number
       valorTotal: number
     }[]
+    vendedor: {
+      id: number
+    }
   }

@@ -12,8 +12,8 @@ export class BlingService {
   constructor(private accessToken: string) {}
 
   async listSales(): Promise<Sale[]> {
-    const startOfDay = dayjs().startOf('day').subtract(2, 'day')
-    const endOfDay = dayjs().endOf('day').subtract(2, 'day')
+    const startOfDay = dayjs().startOf('day').subtract(3, 'day')
+    const endOfDay = dayjs().endOf('day').subtract(3, 'day')
 
     try {
       const salesResponse = await blingLimiter.schedule(() =>

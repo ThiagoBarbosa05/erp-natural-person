@@ -9,6 +9,7 @@ type SendMessageInput = {
     phone: string
     email: string
     birthDate: string | Date
+    vendedor: number
   },
   sale: {
     id: number

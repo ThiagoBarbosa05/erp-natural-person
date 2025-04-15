@@ -30,7 +30,7 @@ async function test() {
     const {id: existingSale} = await dynamo.getSale(sale.id)
     console.info("✅ Verificação concluída, venda já processada: ", existingSale ? existingSale : null)
 
-    if(!existingSale) {
+    if(existingSale) {
       console.info(`⏳ Buscando detalhes da venda: ${sale.id}`)
       const saleDetails = await bling.getSaleDetails(sale.id.toString())
       console.info(`✅ Detalhes da venda ${saleDetails?.id} encontrados`)
@@ -50,7 +50,8 @@ async function test() {
           document: naturalPerson.numeroDocumento,
           birthDate: naturalPerson.dadosAdicionais.dataNascimento,
           email: naturalPerson.email,
-          phone: naturalPerson.telefone
+          phone: naturalPerson.telefone,
+          vendedor: saleDetails.vendedor.id
           },
         sale: {
           id: saleDetails.id,

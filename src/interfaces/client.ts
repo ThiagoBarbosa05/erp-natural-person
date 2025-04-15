@@ -8,4 +8,5 @@ export interface Client {
   dadosAdicionais: {
     dataNascimento: Date | string
   }
+
 }
