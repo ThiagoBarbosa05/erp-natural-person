@@ -4,7 +4,7 @@ import { BlingService } from "./services/bling";
 import { DynamoRepository } from "./repository/dynamo";
 import { QueueService } from "./services/queue";
 
-async function handler() {
+export async function handler() {
 
   const dynamo = new DynamoRepository()
   const queue = new QueueService()
