@@ -4,7 +4,7 @@ import { BlingService } from "./services/bling";
 import { DynamoRepository } from "./repository/dynamo";
 import { QueueService } from "./services/queue";
 
-async function test() {
+async function handler() {
 
   const dynamo = new DynamoRepository()
   const queue = new QueueService()
@@ -30,7 +30,7 @@ async function test() {
     const {id: existingSale} = await dynamo.getSale(sale.id)
     console.info("✅ Verificação concluída, venda já processada: ", existingSale ? existingSale : null)
 
-    if(existingSale) {
+    if(!existingSale) {
       console.info(`⏳ Buscando detalhes da venda: ${sale.id}`)
       const saleDetails = await bling.getSaleDetails(sale.id.toString())
       console.info(`✅ Detalhes da venda ${saleDetails?.id} encontrados`)
@@ -77,5 +77,4 @@ async function test() {
 }
 
 
-test()
 
